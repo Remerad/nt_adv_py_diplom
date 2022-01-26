@@ -1,0 +1,49 @@
+
+2022-01-26 21:27:16,140 INFO sqlalchemy.engine.Engine COMMIT
+2022-01-26 21:27:16,141 INFO sqlalchemy.engine.Engine INSERT INTO human (vk_id, first_name, last_name, can_access_closed, is_closed, bdate, relation) VALUES (%(vk_id)s, %(first_name)s, %(last_name)s, %(can_access_closed)s, %(is_closed)s, %(bdate)s, %(relation)s) RETURNING human.id
+2022-01-26 21:27:16,141 INFO sqlalchemy.engine.Engine [cached since 0.1618s ago] {'vk_id': 7844971, 'first_name': 'Марина', 'last_name': 'Дейнека', 'can_access_closed': True, 'is_closed': False, 'bdate': '27.6', 'relation': 0}
+2022-01-26 21:27:16,148 INFO sqlalchemy.engine.Engine ROLLBACK
+Traceback (most recent call last):
+  File "C:\Users\Remerad\.virtualenvs\nt_adv_py_diplom\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
+    self.dialect.do_execute(
+  File "C:\Users\Remerad\.virtualenvs\nt_adv_py_diplom\lib\site-packages\sqlalchemy\engine\default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.InvalidDatetimeFormat: ОШИБКА:  неверный синтаксис для типа date: "27.6"
+LINE 1: ...ALUES (7844971, 'Марина', 'Дейнека', true, false, '27.6', 0)...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:/Users/Remerad/PycharmProjects/nt_adv_py_diplom/main.py", line 27, in <module>
+    bot.wait_for_user()
+  File "C:\Users\Remerad\PycharmProjects\nt_adv_py_diplom\vk_bot.py", line 105, in wait_for_user
+    DataBaseСlerk('o12KinvJdE', raw_userslist)
+  File "C:\Users\Remerad\PycharmProjects\nt_adv_py_diplom\DataBase_proc.py", line 65, in __init__
+    conn.execute(one_target_add)
+  File "C:\Users\Remerad\.virtualenvs\nt_adv_py_diplom\lib\site-packages\sqlalchemy\engine\base.py", line 1289, in execute
+    return meth(self, multiparams, params, _EMPTY_EXECUTION_OPTS)
+  File "C:\Users\Remerad\.virtualenvs\nt_adv_py_diplom\lib\site-packages\sqlalchemy\sql\elements.py", line 325, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\Remerad\.virtualenvs\nt_adv_py_diplom\lib\site-packages\sqlalchemy\engine\base.py", line 1481, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\Remerad\.virtualenvs\nt_adv_py_diplom\lib\site-packages\sqlalchemy\engine\base.py", line 1845, in _execute_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Remerad\.virtualenvs\nt_adv_py_diplom\lib\site-packages\sqlalchemy\engine\base.py", line 2026, in _handle_dbapi_exception
+    util.raise_(
+  File "C:\Users\Remerad\.virtualenvs\nt_adv_py_diplom\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "C:\Users\Remerad\.virtualenvs\nt_adv_py_diplom\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
+    self.dialect.do_execute(
+  File "C:\Users\Remerad\.virtualenvs\nt_adv_py_diplom\lib\site-packages\sqlalchemy\engine\default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.DataError: (psycopg2.errors.InvalidDatetimeFormat) ОШИБКА:  неверный синтаксис для типа date: "27.6"
+LINE 1: ...ALUES (7844971, 'Марина', 'Дейнека', true, false, '27.6', 0)...
+                                                             ^
+
+[SQL: INSERT INTO human (vk_id, first_name, last_name, can_access_closed, is_closed, bdate, relation) VALUES (%(vk_id)s, %(first_name)s, %(last_name)s, %(can_access_closed)s, %(is_closed)s, %(bdate)s, %(relation)s) RETURNING human.id]
+[parameters: {'vk_id': 7844971, 'first_name': 'Марина', 'last_name': 'Дейнека', 'can_access_closed': True, 'is_closed': False, 'bdate': '27.6', 'relation': 0}]
+(Background on this error at: https://sqlalche.me/e/14/9h9h)
+
+Process finished with exit code 1

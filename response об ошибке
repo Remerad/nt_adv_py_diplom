@@ -1,0 +1,20 @@
+C:\Users\Remerad\.virtualenvs\nt_adv_py_diplom\Scripts\python.exe C:/Users/Remerad/PycharmProjects/nt_adv_py_diplom/main.py
+Бот ждёт пользователя.
+{'error': {'error_code': 113,
+           'error_msg': 'Invalid user id',
+           'request_params': [{'key': 'v', 'value': '5.131'},
+                              {'key': 'user_ids', 'value': 'event.user_id'},
+                              {'key': 'fields',
+                               'value': 'sex, bdate, city, relation, country'},
+                              {'key': 'method', 'value': 'users.get'},
+                              {'key': 'oauth', 'value': '1'}]}}
+Traceback (most recent call last):
+  File "C:/Users/Remerad/PycharmProjects/nt_adv_py_diplom/main.py", line 20, in <module>
+    bot.wait_for_user()
+  File "C:\Users\Remerad\PycharmProjects\nt_adv_py_diplom\vk_bot.py", line 56, in wait_for_user
+    get_user_data(self.token, "event.user_id")
+  File "C:\Users\Remerad\PycharmProjects\nt_adv_py_diplom\vk_rest_api.py", line 33, in get_user_data
+    return response.json()['response'][0]
+KeyError: 'response'
+
+Process finished with exit code 1
